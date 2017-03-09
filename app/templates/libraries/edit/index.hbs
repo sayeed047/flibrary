@@ -1,0 +1,39 @@
+<div class="form-horizontal">
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Name</label>
+    <div class="col-sm-6">
+      {{input type="text" value=model.name class="form-control" placeholder="The name of the Library" disabled="true"}}
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Address</label>
+    <div class="col-sm-6">
+      {{input type="text" value=model.address class="form-control" placeholder="The address of the Library" disabled="true"}}
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Phone</label>
+    <div class="col-sm-6">
+      {{input type="text" value=model.phone class="form-control" placeholder="The phone number of the Library" disabled="true"}}
+    </div>
+  </div>
+</div>
+<h3><span class="label label-primary">Books List</span></h3><br>
+<div class="container">
+  <div class="row">
+    {{#each model.book as |books|}}
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">{{books.title}}</h3>
+            </div>
+            <div class="panel-body">
+              <p>Author: {{books.author}}</p>
+              <p>Year: {{books.year}}</p>
+            </div>
+        </div>
+      </div>
+    {{/each}}
+
+  </div>
+</div>

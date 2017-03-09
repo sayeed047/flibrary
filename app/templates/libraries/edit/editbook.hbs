@@ -1,0 +1,40 @@
+
+<div class="form-horizontal">
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Name</label>
+    <div class="col-sm-6">
+      {{input type="text" value=model.name class="form-control" placeholder="The name of the Library"}}
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Address</label>
+    <div class="col-sm-6">
+      {{input type="text" value=model.address class="form-control" placeholder="The address of the Library"}}
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Phone</label>
+    <div class="col-sm-6">
+      {{input type="text" value=model.phone class="form-control" placeholder="The phone number of the Library"}}
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-6">
+      <button type="submit" class="btn btn-default" {{action 'saveLibrary' model}}>Save changes</button>
+    </div>
+  </div>
+</div><br>
+
+{{editbook-component library=model}}
+
+<!--
+<div class="well">
+  <ul class="nav nav-pills">
+    {{#link-to 'libraries.edit.editbook.bookedit' tagName="li"}}<a href="">Edit Boooks</a>{{/link-to}}
+    {{#link-to 'libraries.edit.editbook.addbook' tagName="li"}}<a href="">Add Books</a>{{/link-to}}
+  </ul>
+</div>
+{{outlet}}
+
+
+-->

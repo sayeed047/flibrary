@@ -1,0 +1,10 @@
+<div class="container-fluid text-center" style="background-color:#383d52">
+<h1><br><span class="label  label-primary">{{model.name}}</span></h1><br><br>
+</div>
+<div class="well">
+  <ul class="nav nav-pills">
+    {{#link-to 'libraries.edit.index' tagName="li"}}<a href="">View Library</a>{{/link-to}}
+    {{#link-to 'libraries.edit.editbook' tagName="li"}}<a href="">Edit Library</a>{{/link-to}}
+  </ul>
+</div>
+{{outlet}}

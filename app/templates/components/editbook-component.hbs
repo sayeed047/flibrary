@@ -1,0 +1,127 @@
+<ul class="nav nav-pills">
+    <li class="active"><a data-toggle="pill" href="#home">Edit Book</a></li>
+    <li><a data-toggle="pill" href="#addBook">Add Book</a></li>
+
+  </ul>
+
+  <div class="tab-content" style="padding-top:20px">
+    <div id="home" class="tab-pane fade in active">
+      <div class="container">
+        <div class="row">
+          {{#each  library.book as |books|}}
+              <div class="col-md-4">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">{{books.title}}</h3>
+                  </div>
+                  <div class="panel-body">
+                    <p>Author: {{books.author}}</p>
+                    <p>Year: {{books.year}}</p>
+                  </div>
+                  <div class="panel-footer">
+                    <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModalHorizontal">Edit</button>
+                    <button class="btn btn-danger btn-xs" {{action 'deleteBook' books }} >delete</button>
+                  </div>
+              </div>
+            </div>
+          {{/each}}
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <div id="addBook" class="tab-pane fade">
+
+      <div class="form-horizontal">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Title:</label>
+          <div class="col-sm-5">
+            {{input type="text" value=tempBook.title class="form-control" placeholder="Title of the Book"}}
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Author:</label>
+          <div class="col-sm-5">
+            {{input type="text" value=tempBook.author class="form-control" placeholder="Author of the library"}}
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Year:</label>
+          <div class="col-sm-5">
+            {{input type="text" value=tempBook.year class="form-control" placeholder="Year of publishing"}}
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-5">
+            <button type="submit" class="btn btn-default" {{action 'saveLibrary' model}}>Add</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="modal fade" id="myModalHorizontal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close"
+                   data-dismiss="modal">
+                       <span aria-hidden="true">&times;</span>
+                       <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    Edit Book
+                </h4>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+
+              <div class="form-horizontal">
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">Name</label>
+                  <div class="col-sm-6">
+                    {{input type="text" value=books.title class="form-control" placeholder="The name of the Library" disabled="true"}}
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">Address</label>
+                  <div class="col-sm-6">
+                    {{input type="text" value="" class="form-control" placeholder="The address of the Library" disabled="true"}}
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">Phone</label>
+                  <div class="col-sm-6">
+                    {{input type="text" value="" class="form-control" placeholder="The phone number of the Library" disabled="true"}}
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default"
+                        data-dismiss="modal">
+                            Close
+                </button>
+                <button type="button" class="btn btn-primary">
+                    Save changes
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

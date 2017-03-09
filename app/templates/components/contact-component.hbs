@@ -1,0 +1,42 @@
+
+<div class="container">
+
+<h1>Contact page</h1>
+
+<p class="well">If you have any question or feedback please leave a message with your email address.</p>
+
+<form class="form-horizontal">
+  <div class="form-group has-feedback {{if isEmailValid 'has-success'}}">
+    <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-4">
+      {{input  class="form-control" id="inputEmail" placeholder="Email" value=email}}
+      {{#if isEmailValid}}<span class="glyphicon glyphicon-ok form-control-feedback"></span>{{/if}}
+    </div>
+  </div>
+
+  <div class="form-group has-feedback {{if isMessageEnoughLong 'has-success'}}">
+            <label for="feedback" class="col-sm-2 control-label">Your message*:</label>
+            <div class="col-sm-5">
+          {{textarea class="form-control" id="feedback" placeholder="Your message. (At least 5 characters.)" rows="5" value=message}}
+          {{#if isMessageEnoughLong}}<span class="glyphicon glyphicon-ok form-control-feedback"></span>{{/if}}
+        </div></div>
+
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button  {{action 'sucess'}} class="btn btn-default" disabled={{isValid}}>Send</button>
+    </div>
+  </div>
+
+  {{#if sucessMessage}}
+    <div class="alert alert-success alert-dismissable">
+      <a href="#" class="close" {{action 'again'}} data-dismiss="alert" aria-label="close">&times;</a>
+            <h4>{{sucessMessage}}</h4>
+           <p>To: {{getEmail}}</p>
+           <p>Message: {{getMessage}}</p>
+    </div>
+
+  {{/if}}
+</form>
+
+</div>

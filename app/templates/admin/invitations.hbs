@@ -1,0 +1,29 @@
+<div class="container">
+  <h3>Subscribers</h3>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>E-mail</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each model as |Subscribers|}}
+        <tr>
+          <th>{{Subscribers.id}}</th>
+          <td>
+            <div classs="container-fluid">
+              <div class="row">
+                <div class="col-md-8">
+                  {{Subscribers.email}}</div>
+                <div class="col-md-4 text-right">
+                  <button class="btn btn-danger btn-xs text-right" {{action 'delete' Subscribers}}>delete</button>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

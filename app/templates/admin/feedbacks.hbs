@@ -1,0 +1,35 @@
+<div class="container">
+    <h3>Customer feedbacks</h3>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>E-mail</th>
+          <th>Message</th>
+        </tr>
+      </thead>
+      <tbody>
+      {{#each model as |feedbacks|}}
+        <tr>
+          <th>{{feedbacks.id}}</th>
+          <td>{{feedbacks.email}}</td>
+
+          <td><div class="container-fluid">
+            <div class="row">
+              <div class="col-md-10">
+                {{feedbacks.message}}
+              </div>
+              <div class="col-md-2 text-right">
+                <button class="btn btn-xs btn-danger text-right" {{action 'delete' feedbacks}}>delete</button>
+              </div>
+            </div>
+          </div>
+
+              </td>
+
+        </tr>
+      {{/each}}
+      </tbody>
+    </table>
+
+</div>
